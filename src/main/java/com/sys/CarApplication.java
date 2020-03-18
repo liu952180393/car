@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class CarApplication {
-    //springboot启动主类
+    //springboot启动类
     public static void main(String[] args) {
         SpringApplication.run(CarApplication.class, args);
     }
