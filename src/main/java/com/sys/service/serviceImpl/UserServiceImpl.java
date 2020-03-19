@@ -17,7 +17,10 @@ public class UserServiceImpl implements UserService {
     public UserVo login(String username,String password) {
         UserVo userVo = new UserVo();
         User userlogin = userDao.login(username);
-        if(userlogin.getPassword().equals(password)){
+        if ((password==null)&& (username==null)){
+            userVo.setStatus(2);
+        }
+        else if(password.equals(userlogin.getPassword())){
             userVo.setStatus(1);
             userVo.setState(userlogin.getState());
         }else {
