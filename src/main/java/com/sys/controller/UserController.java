@@ -4,6 +4,7 @@ import com.sys.entity.User;
 import com.sys.service.UserService;
 import com.sys.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/Login")
+    @PostMapping("/Login")
     public UserVo Login(String username,String password){
         UserVo userlogin = userService.login(username, password);
         return userlogin;
