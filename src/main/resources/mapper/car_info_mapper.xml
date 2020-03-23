@@ -17,41 +17,40 @@
                                     #{record_creator},#{record_create_time},#{state});
     </insert>
     <update id="updateCar" parameterType="com.sys.entity.Car">
-        <update id="updateCar" parameterType="com.sys.entity.Car">
             UPDATE
             car_info
             <set>
-                <if test="carNo != null">
-                    carNo = #{carNo},
+                <if test=" carNo!= null">
+                    car_no= #{carNo},
                 </if>
                 <if test="carColor != null">
-                    carColor = #{carColor},
+                    car_color = #{carColor},
                 </if>
-                <if test="carBuyTime != null">
-                    carBuyTime = #{carBuyTime},
+                <if test=" carBuyTime!= null">
+                    car_buy_time = #{carBuyTime},
                 </if>
-                <if test="carEngineNo != null">
-                    carEngineNo =  #{carEngineNo},
+                <if test=" carBuyTime!= null">
+                    car_engine_no =  #{carEngineNo},
                 </if>
-                <if test="carFrameNo != null">
-                    carFrameNo = #{carFrameNo},
+                <if test=" carFrameNo!= null">
+                    car_frame_no = #{carFrameNo},
                 </if>
-                <if test="carFuelNo !=null">
-                    carFuelNo = #{carFuelNo},
+                <if test=" carFuelNo!=null">
+                    car_fuel_no= #{carFuelNo},
                 </if>
-                <if test="carStatus != null and carStatus != ''">
-                    carStatus=#{carStatus},
+                <if test=" carStatus!= null and carStatus != ''">
+                    car_status =#{carStatus},
                 </if>
                 <if test="recordCreateTime != null">
-                    recordCreateTime=#{recordCreateTime},
+                    record_create_time=#{recordCreateTime},
                 </if>
                 <if test="recordCreator != null and recordCreator != ''">
-                    recordCreator=#{recordCreator},
+                    record_creator=#{recordCreator},
                 </if>
                 <if test="state != null">
                     state=#{state}
                 </if>
             </set>
-        </update>
+                  where id=#{id}
     </update>
 </mapper>
