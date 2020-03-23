@@ -13,6 +13,10 @@ public class Car {
      * */
     private Integer id;
     /**
+     * 序号
+     */
+    private Integer number;
+    /**
      * 车牌号
      */
     private String carNo;

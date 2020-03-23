@@ -6,6 +6,7 @@ import com.sys.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -23,6 +24,10 @@ public class CarServiceImpl implements CarService {
     @Override
     public List<Car> findCarById() {
         List<Car> list = carDao.findCarById();
+        Iterator<Car> iterator = list.iterator();
+        for (int i = 0; i < list.size(); i++) {
+            list.get(i).setNumber(i+1);
+        }
         return list;
     }
     //根据id删除车辆信息
