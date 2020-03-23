@@ -12,6 +12,12 @@ import java.io.Serializable;
  **/
 @Data
 public class UserVo implements Serializable{
-    private int status=2;//判断登录成功与否
-    private int state;//用户身份
+    /**
+     * //判断登录成功与否
+     */
+    private int status=2;
+    /**
+     * //用户身份
+     */
+    private int state;
 }
