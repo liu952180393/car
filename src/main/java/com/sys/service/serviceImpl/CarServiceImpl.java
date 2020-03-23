@@ -41,4 +41,9 @@ public class CarServiceImpl implements CarService {
         int rows = carDao.insertCar(car);
         return rows;
     }
+    //修改车辆信息
+    @Override
+    public int updeteCar(Car car) {
+        return carDao.updateCar(car);
+    }
 }
