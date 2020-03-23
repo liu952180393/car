@@ -24,4 +24,10 @@ public class CarServiceImpl implements CarService {
         List<Car> list = carDao.findCarById();
         return list;
     }
+
+    @Override
+    public int updateCar(Car car) {
+        int rows = carDao.updateCar(car);
+        return rows;
+    }
 }

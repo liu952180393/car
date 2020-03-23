@@ -18,7 +18,6 @@ import java.util.List;
 public class CarController {
     @Autowired
     private CarService carService;
-
     @RequestMapping("/findAll")
     public List<Car> findAllCar(){
         List<Car> list = carService.findCarById();
@@ -27,5 +26,9 @@ public class CarController {
         }
         return list;
     }
-
+    @RequestMapping("/updateCar")
+    public  int updater(Car car){
+        int rows = carService.updateCar(car);
+        return rows;
+    }
 }

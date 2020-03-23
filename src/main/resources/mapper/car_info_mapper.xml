@@ -10,4 +10,40 @@
     <delete id="deleteById">
         delete * from car_info where id={id}
     </delete>
+    <update id="updateCar" parameterType="com.sys.entity.Car">
+        UPDATE
+        car_info
+        <set>
+            <if test="carNo != null">
+                carNo = #{carNo},
+            </if>
+            <if test="carColor != null">
+                carColor = #{carColor},
+            </if>
+            <if test="carBuyTime != null">
+                carBuyTime = #{carBuyTime},
+            </if>
+            <if test="carEngineNo != null">
+                carEngineNo =  #{carEngineNo},
+            </if>
+            <if test="carFrameNo != null">
+                carFrameNo = #{carFrameNo},
+            </if>
+            <if test="carFuelNo !=null">
+                carFuelNo = #{carFuelNo},
+            </if>
+            <if test="carStatus != null and carStatus != ''">
+                    carStatus=#{carStatus},
+            </if>
+            <if test="recordCreateTime != null">
+                recordCreateTime=#{recordCreateTime},
+            </if>
+            <if test="recordCreator != null and recordCreator != ''">
+                recordCreator=#{recordCreator},
+            </if>
+            <if test="state != null">
+                state=#{state}
+            </if>
+        </set>
+    </update>
 </mapper>

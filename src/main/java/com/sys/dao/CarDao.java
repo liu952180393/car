@@ -11,4 +11,8 @@ import java.util.List;
 @Repository
 public interface CarDao {
     List<Car> findCarById();
+    /*
+    *修改车辆信息
+    **/
+    int updateCar(Car car);
 }
