@@ -3,6 +3,7 @@ package com.sys.controller;
 import com.sys.dao.CarDao;
 import com.sys.entity.Car;
 import com.sys.service.CarService;
+import com.sys.vo.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,20 +30,26 @@ public class CarController {
     }
 
     @RequestMapping("/deleteCar")
-    public int deleteCar(Integer id){
+    public Status deleteCar(Integer id){
         int rows = carService.deleteById(id);
-        return  rows;
+        Status status = new Status();
+        status.setStatus(rows);
+        return  status;
     }
 
     @RequestMapping("/insertCar")
-    public int insertCar(Car car){
+    public Status insertCar(Car car){
         int rows = carService.insertCar(car);
-        return  rows;
+        Status status = new Status();
+        status.setStatus(rows);
+        return  status;
     }
 
     @RequestMapping("/updateCar")
-    public int updateCar(Car car){
+    public Status updateCar(Car car){
         int rows = carService.updeteCar(car);
-        return  rows;
+        Status status = new Status();
+        status.setStatus(rows);
+        return  status;
     }
 }
