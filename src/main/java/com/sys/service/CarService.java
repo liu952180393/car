@@ -12,4 +12,8 @@ import java.util.List;
  **/
 public interface CarService {
     List<Car> findCarById();
+
+    int deleteById(Integer id);
+
+    int insertCar(Car car);
 }

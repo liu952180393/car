@@ -8,6 +8,12 @@
     </select>
 
     <delete id="deleteById">
-        delete * from car_info where id={id}
+        delete from car_info where id=#{id}
     </delete>
+
+    <insert id="insertCar">
+        insert into car_info values(#{car_no},#{car_color},#{car_buy_time},
+                                    #{car_fram_no},#{car_fuel_no},#{car_staus},
+                                    #{record_creator},#{record_create_time},#{state});
+    </insert>
 </mapper>

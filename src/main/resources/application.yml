@@ -12,9 +12,12 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
 #Spring mybatis
 mybatis:
+  type-aliases-package: com.sys.entity
   configuration:
     default-statement-timeout: 30
-    map-underscore-to-camel-case: true
+    map-underscore-to-camel-case: true #开启驼峰命名规则
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    use-actual-param-name: true
   mapper-locations:
     - classpath:/mapper/*.xml
+

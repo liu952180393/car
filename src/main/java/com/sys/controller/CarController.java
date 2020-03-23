@@ -28,4 +28,15 @@ public class CarController {
         return list;
     }
 
+    @RequestMapping("/deleteCar")
+    public int deleteCar(Integer id){
+        int rows = carService.deleteById(id);
+        return  rows;
+    }
+
+    @RequestMapping("/insertCar")
+    public int insertCar(Car car){
+        int rows = carService.insertCar(car);
+        return  rows;
+    }
 }
