@@ -39,4 +39,10 @@ public class CarController {
         int rows = carService.insertCar(car);
         return  rows;
     }
+
+    @RequestMapping("/insertCar")
+    public int updateCar(Car car){
+        int rows = carService.updeteCar(car);
+        return  rows;
+    }
 }

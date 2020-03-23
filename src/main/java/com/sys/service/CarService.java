@@ -16,4 +16,6 @@ public interface CarService {
     int deleteById(Integer id);
 
     int insertCar(Car car);
+
+    int updeteCar(Car car);
 }
