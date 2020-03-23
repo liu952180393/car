@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @Autowired
     private UserService userService;
-
     @PostMapping("/Login")
     public UserVo Login(String username,String password){
         UserVo userlogin = userService.login(username, password);
