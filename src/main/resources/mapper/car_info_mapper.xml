@@ -6,4 +6,8 @@
     <select id="findCarById"  resultType="com.sys.entity.Car">
         select * from car_info
     </select>
+
+    <delete id="deleteById">
+        delete * from car_info where id={id}
+    </delete>
 </mapper>
