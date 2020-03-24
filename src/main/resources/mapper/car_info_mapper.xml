@@ -23,19 +23,19 @@
                 <if test=" carNo!= null">
                     car_no= #{carNo},
                 </if>
-                <if test="carColor != null">
+                <if test="carColor != null and carColor !=''">
                     car_color = #{carColor},
                 </if>
-                <if test=" carBuyTime!= null">
+                <if test=" carBuyTime!= null ">
                     car_buy_time = #{carBuyTime},
                 </if>
                 <if test=" carBuyTime!= null">
                     car_engine_no =  #{carEngineNo},
                 </if>
-                <if test=" carFrameNo!= null">
+                <if test=" carFrameNo != null and carFrameNo != ''">
                     car_frame_no = #{carFrameNo},
                 </if>
-                <if test=" carFuelNo!=null">
+                <if test=" carFuelNo!=null and carFuelNo!=''">
                     car_fuel_no= #{carFuelNo},
                 </if>
                 <if test=" carStatus!= null and carStatus != ''">
@@ -53,4 +53,7 @@
             </set>
                   where id=#{id}
     </update>
+    <select id="findById" resultType="com.sys.entity.Car">
+        select * from car_info where id=#{id}
+    </select>
 </mapper>

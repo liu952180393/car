@@ -14,5 +14,6 @@ public interface CarDao {
     int deleteById(Integer id);
     int insertCar(Car car);
     int updateCar(Car car);
+    Car findById(Integer id);
 
 }
