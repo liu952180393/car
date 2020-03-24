@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.sys.dao.CarDao">
-    <select id="findCarById"  resultType="com.sys.entity.Car">
+    <select id="findCarAll"  resultType="com.sys.entity.Car">
         select * from car_info
     </select>
 
@@ -20,32 +20,26 @@
             UPDATE
             car_info
             <set>
-                <if test=" carNo!= null">
-                    car_no= #{carNo},
+              <if test="carNo != null and carNo != ''">
+                  car_no=#{carNo},
+              </if>
+             <if test="carColor != null and carColor != ''">
+                 car_color=#{carColor},
+             </if>
+              <if test="carBuyTime != null">
+                  car_buy_time=#{carBuyTime},
+              </if>
+               <if test="carEngineNo != null and carEngineNo != ''">
+                   car_engine_no=#{carEngineNo} ,
+               </if>
+                <if test="carFrameNo != null and carFrameNo != ''">
+                    car_frame_no=#{carFrameNo} ,
                 </if>
-                <if test="carColor != null and carColor !=''">
-                    car_color = #{carColor},
+                <if test="carFuelNo != null and carFuelNo != ''">
+                    car_fuel_no=#{carFuelNo} ,
                 </if>
-                <if test=" carBuyTime!= null ">
-                    car_buy_time = #{carBuyTime},
-                </if>
-                <if test=" carBuyTime!= null">
-                    car_engine_no =  #{carEngineNo},
-                </if>
-                <if test=" carFrameNo != null and carFrameNo != ''">
-                    car_frame_no = #{carFrameNo},
-                </if>
-                <if test=" carFuelNo!=null and carFuelNo!=''">
-                    car_fuel_no= #{carFuelNo},
-                </if>
-                <if test=" carStatus!= null and carStatus != ''">
-                    car_status =#{carStatus},
-                </if>
-                <if test="recordCreateTime != null">
-                    record_create_time=#{recordCreateTime},
-                </if>
-                <if test="recordCreator != null and recordCreator != ''">
-                    record_creator=#{recordCreator},
+                <if test="carStatus != null and carStatus != ''">
+                    car_status=#{carStatus} ,
                 </if>
                 <if test="state != null">
                     state=#{state}
