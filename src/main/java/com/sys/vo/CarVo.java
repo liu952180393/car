@@ -3,6 +3,7 @@ package com.sys.vo;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -64,6 +65,14 @@ public class CarVo {
          * 状态码
          */
         private Integer state;
+        /**
+         * 车名
+         */
+        private String carName;
+        /**
+         * 单价
+         */
+        private String carPrice;
     }
 
 

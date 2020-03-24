@@ -30,4 +30,19 @@ public class ParameterCalibration {
         }
         return true;
     }
+
+    /**
+     * 判断字符串是否能转换为double
+     * @param string
+     * @return
+     */
+    public static boolean isDouble(String string){
+        boolean result=true;
+        try{
+            Double.parseDouble(string);
+        }catch (Exception e){
+            result=false;
+        }
+        return result;
+    }
 }

@@ -14,7 +14,7 @@
     <insert id="insertCar" parameterType="com.sys.entity.Car">
         insert into car_info values(null ,#{carNo},#{carColor},#{carBuyTime},
                                     #{carEngineNo},#{carFrameNo},#{carFuelNo},
-                                    #{carStatus},#{recordCreator},now(),#{state} );
+                                    #{carStatus},#{recordCreator},now(),#{state},#{carName},#{carPrice});
     </insert>
     <update id="updateCar" parameterType="com.sys.entity.Car">
             UPDATE
@@ -42,7 +42,13 @@
                     car_status=#{carStatus} ,
                 </if>
                 <if test="state != null">
-                    state=#{state}
+                    state=#{state},
+                </if>
+                <if test="carName != null and carName != ''">
+                    car_name=#{carName},
+                </if>
+                <if test="carPrice != null">
+                    car_price=#{carPrice}
                 </if>
             </set>
                   where id=#{id}
