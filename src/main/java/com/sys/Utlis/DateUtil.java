@@ -14,13 +14,13 @@ import java.util.Date;
  **/
 public class DateUtil {
     public static String DateFormat(Date date){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
         String getstr = simpleDateFormat.format(date);
         return  getstr;
     }
     public static Date stringTOdate(String stringDate) throws ParseException {
 
-        Date date = new SimpleDateFormat("yyyy-MM-dd").parse(stringDate);
+        Date date = new SimpleDateFormat("yyyy/MM/dd").parse(stringDate);
         return date;
     }
 }

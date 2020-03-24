@@ -1,5 +1,6 @@
 package com.sys.service.serviceImpl;
 
+import com.sys.Utlis.BigDecimalUtil;
 import com.sys.Utlis.DateUtil;
 import com.sys.dao.CarDao;
 import com.sys.entity.Car;
@@ -38,10 +39,11 @@ public class CarServiceImpl implements CarService {
             String carBuyTime = DateUtil.DateFormat(car.getCarBuyTime());
             String RecordCreateTime= DateUtil.DateFormat(car.getRecordCreateTime());
             carVo.setCarBuyTime(carBuyTime).setRecordCreateTime(RecordCreateTime);
+            carVo.setCarPrice(BigDecimalUtil.bigDecimaltoString(car.getCarPrice()));
             carVo.setId(car.getId()).setNumber(car.getNumber()).setCarNo(car.getCarNo())
                     .setCarColor(car.getCarColor()).setCarEngineNo(car.getCarEngineNo())
                     .setCarFrameNo(car.getCarFrameNo()).setCarFuelNo(car.getCarFuelNo())
-                    .setCarStatus(car.getCarStatus()).setState(car.getState()).setRecordCreator(car.getRecordCreator());
+                    .setCarStatus(car.getCarStatus()).setState(car.getState()).setRecordCreator(car.getRecordCreator()).setCarName(car.getCarName());
             carVoArrayList.add(carVo);
         }
 
