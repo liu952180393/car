@@ -65,10 +65,23 @@ public class CarController {
     @RequestMapping("/updateCar")
     public Status updateCar(CarVo carVo){
         Status status = new Status();
-        boolean MatchingResults = ParameterCalibration.conpileDate(carVo.getCarBuyTime());
-        if (!MatchingResults){
-            status.setStatus(2);
-            return status;
+        if(carVo.getCarBuyTime().equals("")){
+            //如果为空不校验
+        }else {
+            boolean MatchingResults = ParameterCalibration.conpileDate(carVo.getCarBuyTime());
+            if (!(MatchingResults)){
+                status.setStatus(2);
+                return status;
+            }
+        }
+        if(carVo.getCarNo().equals("")){
+            //如果为空不校验
+        }else {
+            boolean MatchingResultsb = ParameterCalibration.carNo(carVo.getCarNo());
+            if (!(MatchingResultsb)){
+                status.setStatus(2);
+                return status;
+            }
         }
         if(carVo.getCarBuyTime().equals("")){
             Car carpo = carService.findById(carVo.getId());
