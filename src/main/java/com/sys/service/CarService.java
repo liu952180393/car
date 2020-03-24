@@ -1,8 +1,9 @@
 package com.sys.service;
 
 import com.sys.entity.Car;
+import com.sys.vo.CarVo;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * 描述：
@@ -11,7 +12,7 @@ import java.util.List;
  * @date 2020/3/19
  **/
 public interface CarService {
-    List<Car> findCarById();
+    ArrayList<CarVo> findCarAll();
 
     int deleteById(Integer id);
 

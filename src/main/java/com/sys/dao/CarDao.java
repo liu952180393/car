@@ -10,7 +10,7 @@ import java.util.List;
  */
 @Repository
 public interface CarDao {
-    List<Car> findCarById();
+    List<Car> findCarAll();
     int deleteById(Integer id);
     int insertCar(Car car);
     int updateCar(Car car);

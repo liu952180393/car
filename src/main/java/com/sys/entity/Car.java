@@ -1,12 +1,14 @@
 package com.sys.entity;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.util.Date;
 /**
  * @author liu
  */
 @Data
+@Accessors(chain = true)
 public class Car {
     /**
      * 全局统一标识符
@@ -49,7 +51,7 @@ public class Car {
      */
     private String recordCreator;
     /**
-     * 记录创建使劲按
+     * 记录创建时间
      */
     private Date recordCreateTime;
     /**

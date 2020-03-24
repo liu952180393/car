@@ -1,12 +1,14 @@
 package com.sys.service.serviceImpl;
 
+import com.sys.Utlis.DateUtil;
 import com.sys.dao.CarDao;
 import com.sys.entity.Car;
 import com.sys.service.CarService;
+import com.sys.vo.CarVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,15 +22,31 @@ public class CarServiceImpl implements CarService {
     @Autowired
     private CarDao carDao;
 
-    //查询所有车辆信息
+    /**
+     * 查询所有车辆信息
+     * @return
+     */
     @Override
-    public List<Car> findCarById() {
-        List<Car> list = carDao.findCarById();
-        Iterator<Car> iterator = list.iterator();
+    public ArrayList<CarVo> findCarAll() {
+        ArrayList<CarVo> carVoArrayList = new ArrayList<>();
+        List<Car> list = carDao.findCarAll();
         for (int i = 0; i < list.size(); i++) {
             list.get(i).setNumber(i+1);
         }
-        return list;
+        for (Car car : list) {
+            CarVo carVo = new CarVo();
+            String carBuyTime = DateUtil.DateFormat(car.getCarBuyTime());
+            String RecordCreateTime= DateUtil.DateFormat(car.getRecordCreateTime());
+            carVo.setCarBuyTime(carBuyTime).setRecordCreateTime(RecordCreateTime);
+            carVo.setId(car.getId()).setNumber(car.getNumber()).setCarNo(car.getCarNo())
+                    .setCarColor(car.getCarColor()).setCarEngineNo(car.getCarEngineNo())
+                    .setCarFrameNo(car.getCarFrameNo()).setCarFuelNo(car.getCarFuelNo())
+                    .setCarStatus(car.getCarStatus()).setState(car.getState()).setRecordCreator(car.getRecordCreator());
+            carVoArrayList.add(carVo);
+        }
+
+
+        return carVoArrayList;
     }
     //根据id删除车辆信息
     @Override
