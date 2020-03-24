@@ -18,4 +18,6 @@ public interface CarService {
     int insertCar(Car car);
 
     int updeteCar(Car car);
+
+    Car findById(Integer id);
 }

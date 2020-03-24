@@ -51,4 +51,9 @@ public class CarServiceImpl implements CarService {
     public int updeteCar(Car car) {
         return carDao.updateCar(car);
     }
+
+    @Override
+    public Car findById(Integer id) {
+        return carDao.findById(id);
+    }
 }

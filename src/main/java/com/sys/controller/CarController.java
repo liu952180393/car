@@ -52,4 +52,8 @@ public class CarController {
         status.setStatus(rows);
         return  status;
     }
+    @RequestMapping("/findById")
+    public Car updateCar(Integer id){
+        return  carService.findById(id);
+    }
 }
