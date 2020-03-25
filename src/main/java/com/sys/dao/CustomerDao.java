@@ -13,5 +13,4 @@ import org.springframework.stereotype.Repository;
 public interface CustomerDao {
     int insertCustomer(CustomerPo customerPo);
 
-    int updatePassword(String username);
 }
