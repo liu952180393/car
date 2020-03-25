@@ -1,11 +1,15 @@
 package com.sys.service.serviceImpl;
 
+import com.sys.Utlis.BigDecimalUtil;
+import com.sys.Utlis.DateUtil;
 import com.sys.dao.ApplyCarDao;
+import com.sys.entity.ApplycarPo;
 import com.sys.service.ApplyCarService;
 import com.sys.vo.ApplyCarVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,9 +24,27 @@ import java.util.List;
 public class ApplyCarServiceImpl implements ApplyCarService {
     @Autowired
     private ApplyCarDao applyCarDao;
+
+    /**
+     * 查询闲置车辆
+     * @return
+     */
     @Override
     public List<ApplyCarVo> findAllfree() {
-        return null;
+        List<ApplycarPo> list = applyCarDao.findAllfree();
+        ArrayList<ApplyCarVo> applyCarVosList = new ArrayList<>();
+        for (ApplycarPo applycarPo : list) {
+            ApplyCarVo applyCarVo = new ApplyCarVo();
+            String CarBuyTime = DateUtil.DateFormat(applycarPo.getCarBuyTime());
+            String CarPrice = BigDecimalUtil.bigDecimaltoString(applycarPo.getCarPrice());
+            int number = list.indexOf(applycarPo);
+            applyCarVo.setCarBuyTime(CarBuyTime).setCarPrice(CarPrice).setCarName(applycarPo.getCarName())
+                    .setCarNo(applycarPo.getCarNo()).setCarColor(applycarPo.getCarColor()).setCarEngineNo(applycarPo.getCarEngineNo())
+                    .setCarFrameNo(applycarPo.getCarFrameNo()).setCarFuelNo(applycarPo.getCarFuelNo())
+                    .setCarStatus(applycarPo.getCarStatus()).setNumber(number+1).setState(applycarPo.getState()).setId(applycarPo.getId());
+            applyCarVosList.add(applyCarVo);
+        }
+        return applyCarVosList;
     }
 
     @Override

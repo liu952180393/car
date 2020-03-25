@@ -21,12 +21,12 @@ import java.util.List;
 public class ApplyCarController {
     @Autowired
     private ApplyCarService applyCarService;
-    @RequestMapping("")
+    @RequestMapping("/finAllFree")
     public List<ApplyCarVo> finAllFree(){
 
-        return null;
+        return applyCarService.findAllfree();
     }
-    @RequestMapping("")
+    @RequestMapping("/applyOrder")
     public Status applyOrder(){
 
         return null;
