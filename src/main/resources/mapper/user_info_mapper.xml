@@ -5,4 +5,7 @@
     <select id="login"  resultType="com.sys.entity.UserPo">
         select * from user_info where username = #{username}
     </select>
+    <select id="findUserAll" resultType="com.sys.entity.UserPo">
+        select * from user_info;
+    </select>
 </mapper>

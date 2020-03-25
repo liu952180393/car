@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sys.dao.CustomerDao">
+    <insert id="insertCustomer" parameterType="com.sys.entity.CustomerPo">
+        insert into customer_info values (null ,#{customerNo},#{customerName},#{customerSex},#{customerAge}
+        ,#{customerId} ,#{customerTel} ,#{customerWorkplace} ,#{customerEmail} ,#{customerStatus}
+        ,#{customerAddress} ,#{cuetomerLicenseNo} ,#{cuetomerLicenseType} ,#{cuetomerLicenseAges}
+        ,#{cuetomerLicenseStartDate} ,#{cuetomerLicenseInvalidDate} ,#{cuetomerLicenseStatus}
+        ,#{recordCreator} ,now() )
+    </insert>
+</mapper>
