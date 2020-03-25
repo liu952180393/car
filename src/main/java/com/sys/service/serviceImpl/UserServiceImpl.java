@@ -1,10 +1,9 @@
 package com.sys.service.serviceImpl;
 
 import com.sys.dao.UserDao;
-import com.sys.entity.User;
+import com.sys.entity.UserPo;
 import com.sys.service.UserService;
 import com.sys.vo.UserVo;
-import jdk.nashorn.internal.ir.IfNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +23,7 @@ public class UserServiceImpl implements UserService {
             userVo.setStatus(2);
             return userVo;
         }
-        User userlogin = userDao.login(username);
+        UserPo userlogin = userDao.login(username);
         if (null==userlogin){
             userVo.setStatus(2);
             return userVo;

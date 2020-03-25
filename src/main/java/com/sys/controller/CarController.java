@@ -3,8 +3,7 @@ package com.sys.controller;
 import com.sys.Utlis.BigDecimalUtil;
 import com.sys.Utlis.DateUtil;
 import com.sys.Utlis.ParameterCalibration;
-import com.sys.dao.CarDao;
-import com.sys.entity.Car;
+import com.sys.entity.CarPo;
 import com.sys.service.CarService;
 import com.sys.vo.CarVo;
 import com.sys.vo.Status;
@@ -45,7 +44,7 @@ public class CarController {
     @RequestMapping("/insertCar")
     public Status insertCar(CarVo carVo) throws ParseException {
         Status status = new Status();
-        Car car = new Car();
+        CarPo carPo = new CarPo();
         boolean carNocomparresult = carNocompar(carVo.getCarNo());
         if (!carNocomparresult){
             status.setStatus(3);
@@ -67,8 +66,8 @@ public class CarController {
         String a = carVo.getCarBuyTime();
         Date carBuyTime = DateUtil.stringTOdate(a);
         BigDecimal CarPrice = BigDecimalUtil.StringtoBigDecimal(carVo.getCarPrice());
-        updateRo(car,carVo,carBuyTime,CarPrice);
-        int rows = carService.insertCar(car);
+        updateRo(carPo,carVo,carBuyTime,CarPrice);
+        int rows = carService.insertCar(carPo);
         status.setStatus(rows);
         return  status;
     }
@@ -99,29 +98,29 @@ public class CarController {
             }
         }
         if(carVo.getCarBuyTime().equals("")){
-            Car carpo = carService.findById(carVo.getId());
+            CarPo carpo = carService.findById(carVo.getId());
             Date carBuyTime = carpo.getCarBuyTime();
-            Car car = new Car();
+            CarPo carPo = new CarPo();
             BigDecimal carPrice = new BigDecimal(0);
             if(carVo.getCarPrice().equals("")){
                 carPrice = carpo.getCarPrice();
                 new BigDecimal(BigDecimalUtil.bigDecimaltoString(carPrice));
             }
-            updateRo(car,carVo,carBuyTime,carPrice);
-            int rows = carService.updeteCar(car);
+            updateRo(carPo,carVo,carBuyTime,carPrice);
+            int rows = carService.updeteCar(carPo);
             status.setStatus(rows);
         }else {
             String carBuyTimestr = carVo.getCarBuyTime();
             Date carBuyTime = new Date(carBuyTimestr);
-            Car car = new Car();
+            CarPo carPo = new CarPo();
             BigDecimal carPrice = new BigDecimal(0);
             if(carVo.getCarPrice().equals("")){
-                Car carpo = carService.findById(carVo.getId());
+                CarPo carpo = carService.findById(carVo.getId());
                 carPrice = carpo.getCarPrice();
                 new BigDecimal(BigDecimalUtil.bigDecimaltoString(carPrice));
             }
-            updateRo(car,carVo,carBuyTime,carPrice);
-            int rows = carService.updeteCar(car);
+            updateRo(carPo,carVo,carBuyTime,carPrice);
+            int rows = carService.updeteCar(carPo);
             status.setStatus(rows);
         }
         return  status;
@@ -129,20 +128,20 @@ public class CarController {
     @RequestMapping("/findById")
     public CarVo updateCar(Integer id){
         CarVo carVo = new CarVo();
-        Car car = carService.findById(id);
-        String carBuyTime = DateUtil.DateFormat(car.getCarBuyTime());
-        String carprice = BigDecimalUtil.bigDecimaltoString(car.getCarPrice());
-        carVo.setCarNo(car.getCarNo()).setCarColor(car.getCarColor())
-                .setCarBuyTime(carBuyTime).setCarEngineNo(car.getCarEngineNo())
-                .setCarFuelNo(car.getCarFuelNo()).setCarFrameNo(car.getCarFrameNo())
-                .setCarStatus(car.getCarStatus()).setState(car.getState()).setCarName(car.getCarName()).setCarPrice(carprice);
+        CarPo carPo = carService.findById(id);
+        String carBuyTime = DateUtil.DateFormat(carPo.getCarBuyTime());
+        String carprice = BigDecimalUtil.bigDecimaltoString(carPo.getCarPrice());
+        carVo.setCarNo(carPo.getCarNo()).setCarColor(carPo.getCarColor())
+                .setCarBuyTime(carBuyTime).setCarEngineNo(carPo.getCarEngineNo())
+                .setCarFuelNo(carPo.getCarFuelNo()).setCarFrameNo(carPo.getCarFrameNo())
+                .setCarStatus(carPo.getCarStatus()).setState(carPo.getState()).setCarName(carPo.getCarName()).setCarPrice(carprice);
         return carVo;
     }
 
     /**
      * 修改车辆入参处理
      */
-    void updateRo(Car car,CarVo carVo,Date carBuyTimestr,BigDecimal CarPrice){
+    void updateRo(CarPo carPo, CarVo carVo, Date carBuyTimestr, BigDecimal CarPrice){
         String carNo = carVo.getCarNo();
         String carColor = carVo.getCarColor();
         String carEngineNo = carVo.getCarEngineNo();
@@ -153,7 +152,7 @@ public class CarController {
         String carName = carVo.getCarName();
         Integer id = carVo.getId();
         String recordCreator = carVo.getRecordCreator();
-        car.setCarNo(carNo).setCarColor(carColor).setCarEngineNo(carEngineNo).setCarBuyTime(carBuyTimestr).setCarFrameNo(carFrameNo).
+        carPo.setCarNo(carNo).setCarColor(carColor).setCarEngineNo(carEngineNo).setCarBuyTime(carBuyTimestr).setCarFrameNo(carFrameNo).
                 setCarFuelNo(carFuelNo).setCarStatus(carStatus).setState(state).setId(id).setCarPrice(CarPrice).setCarName(carName).setRecordCreator(recordCreator);
 
     }

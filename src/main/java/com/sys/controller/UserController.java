@@ -1,11 +1,9 @@
 package com.sys.controller;
 
-import com.sys.entity.User;
 import com.sys.service.UserService;
 import com.sys.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
