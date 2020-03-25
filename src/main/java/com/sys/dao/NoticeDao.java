@@ -1,6 +1,6 @@
 package com.sys.dao;
 
-import com.sys.entity.CustomerPo;
+import com.sys.entity.NoticePo;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
  * @date 2020/3/25
  **/
 @Repository
-public interface CustomerDao {
-    int insertCustomer(CustomerPo customerPo);
+public interface NoticeDao {
+    int insertContent(NoticePo noticePo);
 }
