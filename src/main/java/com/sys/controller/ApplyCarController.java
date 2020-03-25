@@ -1,6 +1,9 @@
 package com.sys.controller;
 
+import com.sys.entity.CarPo;
+import com.sys.entity.OrderPo;
 import com.sys.service.ApplyCarService;
+import com.sys.service.CarService;
 import com.sys.vo.ApplyCarVo;
 import com.sys.vo.Status;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +24,21 @@ import java.util.List;
 public class ApplyCarController {
     @Autowired
     private ApplyCarService applyCarService;
+
     @RequestMapping("")
     public List<ApplyCarVo> finAllFree(){
 
         return null;
     }
-    @RequestMapping("")
-    public Status applyOrder(){
-
-        return null;
+    @RequestMapping("/applyOrder")
+    public Status applyOrder(String carNo,Integer id){
+        Status status = new Status();
+        int rows = applyCarService.applyOrder(carNo,id);
+        if (rows==2){
+            status.setStatus(1);
+        }else {
+            status.setStatus(0);
+        }
+        return status;
     }
 }

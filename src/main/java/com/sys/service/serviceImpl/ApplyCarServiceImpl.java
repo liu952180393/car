@@ -1,6 +1,7 @@
 package com.sys.service.serviceImpl;
 
 import com.sys.dao.ApplyCarDao;
+import com.sys.entity.OrderPo;
 import com.sys.service.ApplyCarService;
 import com.sys.vo.ApplyCarVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,10 @@ public class ApplyCarServiceImpl implements ApplyCarService {
     }
 
     @Override
-    public int applyOrder(Integer id) {
-        return 0;
+    public int applyOrder(String carNO,Integer id) {
+        int rows1 = applyCarDao.applyOrder(carNO);
+        int rows2 = applyCarDao.updatecarState(id);
+        return rows1+rows2;
     }
+
 }

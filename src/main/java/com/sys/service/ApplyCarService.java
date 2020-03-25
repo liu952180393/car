@@ -1,5 +1,6 @@
 package com.sys.service;
 
+import com.sys.entity.OrderPo;
 import com.sys.vo.ApplyCarVo;
 
 import java.util.List;
@@ -14,5 +15,11 @@ import java.util.List;
  **/
 public interface ApplyCarService {
     List<ApplyCarVo> findAllfree();
-    int applyOrder(Integer id);
+
+    /**
+     * 生成订单
+     * @param carNO
+     * @return
+     */
+    int applyOrder(String carNO,Integer id);
 }
