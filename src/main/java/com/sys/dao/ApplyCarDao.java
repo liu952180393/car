@@ -18,6 +18,12 @@ import java.util.List;
 @Repository
 public interface ApplyCarDao {
     List<ApplycarPo> findAllfree();
+
+    /**
+     * 生成订单
+     * @param carNo
+     * @return
+     */
     int applyOrder(String carNo);
     /**
      * 提交订单修改车辆状态
