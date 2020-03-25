@@ -21,5 +21,5 @@ public interface ApplyCarService {
      * @param carNO
      * @return
      */
-    int applyOrder(String carNO,Integer id);
+    int applyOrder(String carNO,Integer id,String userName);
 }

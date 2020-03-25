@@ -31,11 +31,13 @@ public class ApplyCarController {
         return applyCarService.findAllfree();
     }
     @RequestMapping("/applyOrder")
-    public Status applyOrder(String carNo,Integer id){
+    public Status applyOrder(String carNo,Integer id,String userName){
         Status status = new Status();
-        int rows = applyCarService.applyOrder(carNo,id);
+        int rows = applyCarService.applyOrder(carNo,id,userName);
         if (rows==2){
             status.setStatus(1);
+        }else if(rows==3) {
+            status.setStatus(2);
         }else {
             status.setStatus(0);
         }

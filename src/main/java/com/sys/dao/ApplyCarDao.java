@@ -23,4 +23,8 @@ public interface ApplyCarDao {
      * 提交订单修改车辆状态
      */
     int updatecarState(Integer id);
+    /**
+     * 按账户查找材料
+     */
+    String findMaterial(String userName);
 }
