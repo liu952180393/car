@@ -1,5 +1,6 @@
 package com.sys.dao;
 
+import com.sys.entity.ApplycarPo;
 import com.sys.entity.OrderPo;
 import com.sys.vo.ApplyCarVo;
 import org.springframework.stereotype.Repository;
@@ -16,7 +17,7 @@ import java.util.List;
  **/
 @Repository
 public interface ApplyCarDao {
-    List<ApplyCarVo> findAllfree();
+    List<ApplycarPo> findAllfree();
     int applyOrder(String carNo);
     /**
      * 提交订单修改车辆状态

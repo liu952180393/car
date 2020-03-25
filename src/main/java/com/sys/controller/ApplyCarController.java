@@ -25,10 +25,10 @@ public class ApplyCarController {
     @Autowired
     private ApplyCarService applyCarService;
 
-    @RequestMapping("")
+    @RequestMapping("/finAllFree")
     public List<ApplyCarVo> finAllFree(){
 
-        return null;
+        return applyCarService.findAllfree();
     }
     @RequestMapping("/applyOrder")
     public Status applyOrder(String carNo,Integer id){
