@@ -49,7 +49,7 @@ public class ApplyCarServiceImpl implements ApplyCarService {
         if (material==null){
             return 2;
         }else {
-            applyCarDao.applyOrder(carNO);
+            applyCarDao.applyOrder(carNO,userName);
             applyCarDao.updatecarState(id);
         }
         return 1;
