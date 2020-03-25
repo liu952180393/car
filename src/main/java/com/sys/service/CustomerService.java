@@ -1,6 +1,6 @@
 package com.sys.service;
 
-import com.sys.entity.CustomerPo;
+import com.sys.vo.CustomerVo;
 
 /**
  * 描述：
@@ -9,5 +9,5 @@ import com.sys.entity.CustomerPo;
  * @date 2020/3/25
  **/
 public interface CustomerService {
-    int insertCustomer(CustomerPo customerPo);
+    int insertCustomer(CustomerVo customerVo);
 }
