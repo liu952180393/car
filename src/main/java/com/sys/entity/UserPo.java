@@ -3,7 +3,7 @@ package com.sys.entity;
 import lombok.Data;
 
 @Data
-public class User {
+public class UserPo {
     private int id;
     private String username;
     private String password;

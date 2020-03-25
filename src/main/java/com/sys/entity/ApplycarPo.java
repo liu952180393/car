@@ -5,12 +5,18 @@ import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
 /**
- * @author liu
- */
+ * 描述：
+ *
+ * @author PuYinsheng
+ * @date 2020/3/25
+ * @copyright 2020 [图片]www.tydic.com Inc. All rights reserved.
+ * 注意：本内容仅限于北京天源迪科信息技术有限公司内部传阅，禁止外泄以及用于其他商业目的.
+ **/
 @Data
 @Accessors(chain = true)
-public class Car {
+public class ApplycarPo {
     /**
      * 全局统一标识符
      * */
@@ -47,14 +53,6 @@ public class Car {
      * 车辆状态
      */
     private String carStatus;
-    /**
-     * 记录创建人
-     */
-    private String recordCreator;
-    /**
-     * 记录创建时间
-     */
-    private Date recordCreateTime;
     /**
      * 状态码
      */

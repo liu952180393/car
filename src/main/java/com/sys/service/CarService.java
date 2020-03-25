@@ -1,6 +1,6 @@
 package com.sys.service;
 
-import com.sys.entity.Car;
+import com.sys.entity.CarPo;
 import com.sys.vo.CarVo;
 
 import java.util.ArrayList;
@@ -16,9 +16,9 @@ public interface CarService {
 
     int deleteById(Integer id);
 
-    int insertCar(Car car);
+    int insertCar(CarPo carPo);
 
-    int updeteCar(Car car);
+    int updeteCar(CarPo carPo);
 
-    Car findById(Integer id);
+    CarPo findById(Integer id);
 }

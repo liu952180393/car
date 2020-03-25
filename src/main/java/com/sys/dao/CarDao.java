@@ -1,6 +1,6 @@
 package com.sys.dao;
 
-import com.sys.entity.Car;
+import com.sys.entity.CarPo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,10 +10,10 @@ import java.util.List;
  */
 @Repository
 public interface CarDao {
-    List<Car> findCarAll();
+    List<CarPo> findCarAll();
     int deleteById(Integer id);
-    int insertCar(Car car);
-    int updateCar(Car car);
-    Car findById(Integer id);
+    int insertCar(CarPo carPo);
+    int updateCar(CarPo carPo);
+    CarPo findById(Integer id);
 
 }

@@ -3,7 +3,7 @@ package com.sys.service.serviceImpl;
 import com.sys.Utlis.BigDecimalUtil;
 import com.sys.Utlis.DateUtil;
 import com.sys.dao.CarDao;
-import com.sys.entity.Car;
+import com.sys.entity.CarPo;
 import com.sys.service.CarService;
 import com.sys.vo.CarVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,20 +30,20 @@ public class CarServiceImpl implements CarService {
     @Override
     public ArrayList<CarVo> findCarAll() {
         ArrayList<CarVo> carVoArrayList = new ArrayList<>();
-        List<Car> list = carDao.findCarAll();
+        List<CarPo> list = carDao.findCarAll();
         for (int i = 0; i < list.size(); i++) {
             list.get(i).setNumber(i+1);
         }
-        for (Car car : list) {
+        for (CarPo carPo : list) {
             CarVo carVo = new CarVo();
-            String carBuyTime = DateUtil.DateFormat(car.getCarBuyTime());
-            String RecordCreateTime= DateUtil.DateFormat(car.getRecordCreateTime());
+            String carBuyTime = DateUtil.DateFormat(carPo.getCarBuyTime());
+            String RecordCreateTime= DateUtil.DateFormat(carPo.getRecordCreateTime());
             carVo.setCarBuyTime(carBuyTime).setRecordCreateTime(RecordCreateTime);
-            carVo.setCarPrice(BigDecimalUtil.bigDecimaltoString(car.getCarPrice()));
-            carVo.setId(car.getId()).setNumber(car.getNumber()).setCarNo(car.getCarNo())
-                    .setCarColor(car.getCarColor()).setCarEngineNo(car.getCarEngineNo())
-                    .setCarFrameNo(car.getCarFrameNo()).setCarFuelNo(car.getCarFuelNo())
-                    .setCarStatus(car.getCarStatus()).setState(car.getState()).setRecordCreator(car.getRecordCreator()).setCarName(car.getCarName());
+            carVo.setCarPrice(BigDecimalUtil.bigDecimaltoString(carPo.getCarPrice()));
+            carVo.setId(carPo.getId()).setNumber(carPo.getNumber()).setCarNo(carPo.getCarNo())
+                    .setCarColor(carPo.getCarColor()).setCarEngineNo(carPo.getCarEngineNo())
+                    .setCarFrameNo(carPo.getCarFrameNo()).setCarFuelNo(carPo.getCarFuelNo())
+                    .setCarStatus(carPo.getCarStatus()).setState(carPo.getState()).setRecordCreator(carPo.getRecordCreator()).setCarName(carPo.getCarName());
             carVoArrayList.add(carVo);
         }
 
@@ -62,18 +62,18 @@ public class CarServiceImpl implements CarService {
     }
     //新增车辆信息
     @Override
-    public int insertCar(Car car) {
-        int rows = carDao.insertCar(car);
+    public int insertCar(CarPo carPo) {
+        int rows = carDao.insertCar(carPo);
         return rows;
     }
     //修改车辆信息
     @Override
-    public int updeteCar(Car car) {
-        return carDao.updateCar(car);
+    public int updeteCar(CarPo carPo) {
+        return carDao.updateCar(carPo);
     }
 
     @Override
-    public Car findById(Integer id) {
+    public CarPo findById(Integer id) {
         return carDao.findById(id);
     }
 }
