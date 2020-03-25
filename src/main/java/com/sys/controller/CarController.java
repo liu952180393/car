@@ -104,7 +104,8 @@ public class CarController {
             BigDecimal carPrice = new BigDecimal(0);
             if(carVo.getCarPrice().equals("")){
                 carPrice = carpo.getCarPrice();
-                new BigDecimal(BigDecimalUtil.bigDecimaltoString(carPrice));
+            }else {
+                 carPrice = BigDecimalUtil.StringtoBigDecimal(carVo.getCarPrice());
             }
             updateRo(carPo,carVo,carBuyTime,carPrice);
             int rows = carService.updeteCar(carPo);
@@ -117,7 +118,8 @@ public class CarController {
             if(carVo.getCarPrice().equals("")){
                 CarPo carpo = carService.findById(carVo.getId());
                 carPrice = carpo.getCarPrice();
-                new BigDecimal(BigDecimalUtil.bigDecimaltoString(carPrice));
+            }else {
+                carPrice = BigDecimalUtil.StringtoBigDecimal(carVo.getCarPrice());
             }
             updateRo(carPo,carVo,carBuyTime,carPrice);
             int rows = carService.updeteCar(carPo);
