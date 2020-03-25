@@ -35,9 +35,12 @@ public class ApplyCarController {
         Status status = new Status();
         int rows = applyCarService.applyOrder(carNo,id,userName);
         if (rows==2){
-            status.setStatus(1);
-        }else if(rows==3) {
+            /**
+             * 没有驾照或没上传材料
+             */
             status.setStatus(2);
+        }else if(rows==3) {
+            status.setStatus(1);
         }else {
             status.setStatus(0);
         }
