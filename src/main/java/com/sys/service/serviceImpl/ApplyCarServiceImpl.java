@@ -45,14 +45,14 @@ public class ApplyCarServiceImpl implements ApplyCarService {
 
     @Override
     public int applyOrder(String carNO,Integer id,String userName) {
-        int rows1 = applyCarDao.applyOrder(carNO);
-        int rows2 = applyCarDao.updatecarState(id);
-        int rows3=0;
         String material = applyCarDao.findMaterial(userName);
         if (material==null){
-            rows3=0;
+            return 2;
+        }else {
+            applyCarDao.applyOrder(carNO);
+            applyCarDao.updatecarState(id);
         }
-        return rows1+rows2+rows3;
+        return 1;
     }
 
 }

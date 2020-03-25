@@ -33,17 +33,8 @@ public class ApplyCarController {
     @RequestMapping("/applyOrder")
     public Status applyOrder(String carNo,Integer id,String userName){
         Status status = new Status();
-        int rows = applyCarService.applyOrder(carNo,id,userName);
-        if (rows==2){
-            /**
-             * 没有驾照或没上传材料
-             */
-            status.setStatus(2);
-        }else if(rows==3) {
-            status.setStatus(1);
-        }else {
-            status.setStatus(0);
-        }
+        int result = applyCarService.applyOrder(carNo, id, userName);
+        status.setStatus(result);
         return status;
     }
 }
