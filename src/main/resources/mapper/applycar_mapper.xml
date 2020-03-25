@@ -8,7 +8,7 @@
         update car_info set state=3 where  id=#{id};
     </update>
     <insert id="applyOrder" parameterType="com.sys.entity.OrderPo">
-        insert into car_order values(null,#{carNo},now(),null ,null,null,1,null);
+        insert into car_order values(null,#{carNo},now(),null ,1,null,1,null);
     </insert>
     <select id="findMaterial" resultType="java.lang.String">
         select cuetomer_license_no from customer_info where customer_no=#{userName}

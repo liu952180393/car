@@ -50,7 +50,7 @@ public class ApplyCarServiceImpl implements ApplyCarService {
         int rows3=0;
         String material = applyCarDao.findMaterial(userName);
         if (material==null){
-            rows3=1;
+            rows3=0;
         }
         return rows1+rows2+rows3;
     }
