@@ -25,9 +25,8 @@ public class ApplyCarController {
     @Autowired
     private ApplyCarService applyCarService;
 
-    @RequestMapping("/finAllFree")
+    @RequestMapping("/findAllFree")
     public List<ApplyCarVo> finAllFree(){
-
         return applyCarService.findAllfree();
     }
     @RequestMapping("/applyOrder")
@@ -36,5 +35,9 @@ public class ApplyCarController {
         int result = applyCarService.applyOrder(carNo, id, userName);
         status.setStatus(result);
         return status;
+    }
+    @RequestMapping("/updatecarState")
+    public int updatecarState(Integer id){
+        return applyCarService.updatecarState(id);
     }
 }

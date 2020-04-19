@@ -27,7 +27,6 @@ public class ApplyAuditContriller {
 
     @RequestMapping("/updateCarOrder")
     public int updateCarOrder(Integer id){
-         applyAuditService.updateCarOrder(id);
         return applyAuditService.updateCarOrder(id);
     }
 }

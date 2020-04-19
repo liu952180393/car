@@ -59,27 +59,27 @@ public class CustomerVo {
     /**
      * 驾照号码
      */
-    private String customerLicenseNo;
+    private String cuetomerLicenseNo;
     /**
      * 驾照类型
      */
-    private String customerLicenseType;
+    private String cuetomerLicenseType;
     /**
      * 驾龄
      */
-    private Integer customerLicenseAges;
+    private Integer cuetomerLicenseAges;
     /**
      * 发证日期
      */
-    private String customerLicenseStartDate;
+    private String cuetomerLicenseStartDate;
     /**
      * 到期日期
      */
-    private String customerLicenseInvalidDate;
+    private String cuetomerLicenseInvalidDate;
     /**
      * 状态
      */
-    private Integer customerLicenseStatus;
+    private Integer cuetomerLicenseStatus;
     /**
      * 创建人
      */

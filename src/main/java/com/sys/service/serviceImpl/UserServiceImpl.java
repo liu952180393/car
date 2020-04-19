@@ -35,4 +35,21 @@ public class UserServiceImpl implements UserService {
 
         return userVo;
     }
+
+    @Override
+    public int updatePassword(String password,String username) {
+        int rows = userDao.updatePassword(username,password);
+        return rows;
+    }
+    @Override
+    public UserPo findByUsername(String username) {
+        UserPo userPo = userDao.findByUsername(username);
+        return userPo;
+    }
+
+    @Override
+    public int addUser(UserPo userPo) {
+        int rows = userDao.addUser(userPo);
+        return rows;
+    }
 }

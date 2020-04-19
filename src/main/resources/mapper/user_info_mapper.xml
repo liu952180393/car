@@ -8,4 +8,15 @@
     <select id="findUserAll" resultType="com.sys.entity.UserPo">
         select * from user_info;
     </select>
+
+    <select id="findByUsername" resultType="com.sys.entity.UserPo">
+        select password from user_info where username = #{username}
+    </select>
+    <update id="updatePassword" parameterType="com.sys.entity.UserPo">
+        update user_info set password = #{password} where username = #{username}
+    </update>
+    <insert id="addUser" parameterType="com.sys.entity.UserPo">
+        insert into user_info values (null,#{username},#{password},2);
+    </insert>
+
 </mapper>

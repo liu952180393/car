@@ -13,4 +13,17 @@ public interface UserDao {
      * 查询全部用户
      */
     List<UserPo> findUserAll();
+
+    /**
+     * 修改密码
+     */
+    int updatePassword(String password,String username);
+    /**
+     * 根据密码查询用户
+     */
+    UserPo findByUsername(String usernmae);
+    /**
+     * 注册用户
+     */
+    int addUser(UserPo userPo);
 }

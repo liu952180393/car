@@ -55,4 +55,9 @@ public class ApplyCarServiceImpl implements ApplyCarService {
         return 1;
     }
 
+    @Override
+    public int updatecarState(Integer id) {
+        return applyCarDao.updatecarState(id);
+    }
+
 }

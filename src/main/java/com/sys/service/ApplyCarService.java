@@ -1,6 +1,5 @@
 package com.sys.service;
 
-import com.sys.entity.OrderPo;
 import com.sys.vo.ApplyCarVo;
 
 import java.util.List;
@@ -22,4 +21,6 @@ public interface ApplyCarService {
      * @return
      */
     int applyOrder(String carNO,Integer id,String userName);
+
+    int updatecarState(Integer id);
 }
