@@ -24,7 +24,7 @@ public interface ApplyCarDao {
      * @param carNo
      * @return
      */
-    int applyOrder(String carNo,String userName);
+    int applyOrder(String carNo, String userName);
 
     /**
      * 提交订单修改车辆状态

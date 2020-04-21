@@ -2,10 +2,9 @@ package com.sys.service.serviceImpl;
 
 import com.sys.Utlis.DateUtil;
 import com.sys.dao.ApplyAuditDao;
-import com.sys.entity.ApplycarPo;
 import com.sys.entity.AuditPo;
+import com.sys.entity.PassOrderPo;
 import com.sys.service.ApplyAuditService;
-import com.sys.vo.ApplyCarVo;
 import com.sys.vo.AuditVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,8 +41,15 @@ public class ApplyAuditServiceImpl implements ApplyAuditService {
         return list;
     }
 
+    /**
+     * 通过审核
+     * @param passOrderPo
+     * @return
+     */
     @Override
-    public int updateCarOrder(Integer id) {
-        return applyAuditDao.updateCarOrder(id);
+    public int updateCarOrder(PassOrderPo passOrderPo) {
+        applyAuditDao.updateCarStae(passOrderPo.getCarNo());
+        return applyAuditDao.updateCarOrder(passOrderPo.getId());
+
     }
 }

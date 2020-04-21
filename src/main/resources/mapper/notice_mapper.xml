@@ -4,4 +4,16 @@
     <insert id="insertContent">
         insert  into notice_info values (null,#{content} );
     </insert>
+    <update id="updateContent">
+        update notice_info set content=#{content}
+    </update>
+    <select id="findAllContentShow" resultType="java.lang.String">
+        SELECT content from notice_info
+    </select>
+    <delete id="deleltContent">
+        delete from notice_info where id=#{id}
+    </delete>
+    <select id="findAllNotice" resultType="com.sys.entity.NoticePo">
+        select * from notice_info
+    </select>
 </mapper>

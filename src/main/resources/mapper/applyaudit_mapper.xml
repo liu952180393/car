@@ -22,4 +22,8 @@ FROM
     <update id="updateCarOrder">
         UPDATE car_order SET order_star_time=NOW(),order_state=2 WHERE id=#{id};
     </update>
+	<update id="updateCarStae">
+		update car_info set state=1 where car_no =#{carNo}
+	</update>
+
 </mapper>

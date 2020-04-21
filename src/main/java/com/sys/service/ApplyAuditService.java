@@ -1,5 +1,6 @@
 package com.sys.service;
 
+import com.sys.entity.PassOrderPo;
 import com.sys.vo.AuditVo;
 
 import java.util.List;
@@ -20,5 +21,5 @@ public interface ApplyAuditService {
     /**
      * 审核通过修改订单信息
      */
-    int updateCarOrder(Integer id);
+    int updateCarOrder(PassOrderPo passOrderPo);
 }

@@ -21,4 +21,28 @@
         now()
         )
     </insert>
+    <select id="findOrderByuserName" resultType="com.sys.entity.OrderPo">
+        select id,car_no,apply_time,order_state from  car_order where order_user=#{userName}
+    </select>
+    <select id="findNameByUserName" resultType="java.lang.String">
+        select customer_name from customer_info where customer_no=#{userName}
+    </select>
+    <select id="findNoReturn" resultType="com.sys.entity.OrderPo">
+        select id,car_no,order_star_time,order_user from car_order where return_state=1 and order_state=2
+    </select>
+    <update id="finishRuturnCar">
+        update car_order set return_state=3, return_state=2,order_end_time=now() where id=#{id}
+    </update>
+    <update id="updateCarstate">
+        update car_info set state=2,car_status=#{carState} where car_no=#{carNo}
+    </update>
+    <update id="updateOrderPrice">
+        update car_order set order_price=#{price} where id=#{id}
+    </update>
+    <select id="findOderTimeByid" resultType="java.lang.Long">
+        SELECT TIME_TO_SEC(TIMEDIFF(order_end_time,order_star_time)) FROM car_order WHERE id=#{id}
+    </select>
+    <select id="findPriceByNO" resultType="java.lang.Double">
+        select car_price from car_info where car_no=#{carNo}
+    </select>
 </mapper>

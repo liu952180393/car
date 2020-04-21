@@ -17,7 +17,7 @@ public interface UserDao {
     /**
      * 修改密码
      */
-    int updatePassword(String password,String username);
+    int updatePassword(String password, String username);
     /**
      * 根据密码查询用户
      */
@@ -26,4 +26,17 @@ public interface UserDao {
      * 注册用户
      */
     int addUser(UserPo userPo);
+
+    /**
+     * 查询所有普通用户
+     * @return
+     */
+    List<UserDao> findAllUser();
+
+    /**
+     * 根据id删除用户
+     * @param id
+     * @return
+     */
+    int deleteUserByid(Integer id);
 }

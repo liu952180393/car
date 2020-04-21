@@ -1,5 +1,6 @@
 package com.sys.controller;
 
+import com.sys.entity.PassOrderPo;
 import com.sys.service.ApplyAuditService;
 import com.sys.vo.AuditVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class ApplyAuditController {
     }
 
     @RequestMapping("/updateCarOrder")
-    public int updateCarOrder(Integer id){
-        return applyAuditService.updateCarOrder(id);
+    public int updateCarOrder(PassOrderPo passOrderPo){
+        return applyAuditService.updateCarOrder(passOrderPo);
     }
 }

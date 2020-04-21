@@ -18,5 +18,11 @@
     <insert id="addUser" parameterType="com.sys.entity.UserPo">
         insert into user_info values (null,#{username},#{password},2);
     </insert>
+    <select id="findAllUser" resultType="com.sys.dao.UserDao">
+        select id,username,state from user_info where state=2;
+    </select>
+    <delete id="deleteUserByid">
+        delete from user_info where id=#{id}
+    </delete>
 
 </mapper>
