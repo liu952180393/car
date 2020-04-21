@@ -4,6 +4,7 @@ import com.sys.dao.UserDao;
 import com.sys.entity.NoReturnPo;
 import com.sys.entity.OrderPo;
 import com.sys.entity.ReturnCarPo;
+import com.sys.entity.UserPo;
 import com.sys.vo.CustomerVo;
 
 import java.util.List;
@@ -44,7 +45,7 @@ public interface CustomerService {
      * 查询所有普通用户
      * @return
      */
-    List<UserDao> findAllUser();
+    List<UserPo> findAllUser();
     /**
      * 根据id删除用户
      * @param id

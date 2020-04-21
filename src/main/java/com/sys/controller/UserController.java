@@ -82,7 +82,7 @@ public class UserController {
      * @return
      */
     @RequestMapping("findAllUser")
-    public List<UserDao> findAllUser() {
+    public List<UserPo> findAllUser() {
         return customerService.findAllUser();
     }
 }
