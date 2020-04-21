@@ -1,5 +1,6 @@
 package com.sys.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -25,10 +26,12 @@ public class OrderPo {
     /**
      *申请租车时间
      */
+    @JsonFormat(pattern = "yyy/MM/dd HH:mm")
     private Date applyTime;
     /**
      * 订单开始时间
      */
+    @JsonFormat(pattern = "yyy/MM/dd HH:mm")
     private Date orderStarTime;
     /**
      * 订单状态
@@ -45,5 +48,10 @@ public class OrderPo {
     /**
      * 订单结束时间
      */
+    @JsonFormat(pattern = "yyy/MM/dd HH:mm")
     private Date orderEndTime;
+    /**
+     * 账户名
+     */
+    private  String orderUser;
 }

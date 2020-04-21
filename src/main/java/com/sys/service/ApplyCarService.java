@@ -20,7 +20,7 @@ public interface ApplyCarService {
      * @param carNO
      * @return
      */
-    int applyOrder(String carNO,Integer id,String userName);
+    int applyOrder(String carNO, Integer id, String userName);
 
     int updatecarState(Integer id);
 }

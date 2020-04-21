@@ -1,7 +1,10 @@
 package com.sys.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.experimental.Accessors;
+
+import java.util.Date;
 
 /**
  * 描述：
@@ -67,7 +70,7 @@ public class CustomerVo {
     /**
      * 驾龄
      */
-    private Integer cuetomerLicenseAges;
+    private Double cuetomerLicenseAges;
     /**
      * 发证日期
      */

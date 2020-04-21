@@ -69,7 +69,7 @@ public class CustomerPo {
     /**
      * 驾龄
      */
-    private Integer cuetomerLicenseAges;
+    private Double cuetomerLicenseAges;
     /**
      * 发证日期
      */

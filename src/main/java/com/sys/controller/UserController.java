@@ -1,6 +1,8 @@
 package com.sys.controller;
 
+import com.sys.dao.UserDao;
 import com.sys.entity.UserPo;
+import com.sys.service.CustomerService;
 import com.sys.service.UserService;
 import com.sys.vo.Status;
 import com.sys.vo.UserVo;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * 描述：
@@ -20,6 +24,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private CustomerService customerService;
     @PostMapping("/Login")
     public UserVo Login(String username,String password){
         UserVo userlogin = userService.login(username, password);
@@ -61,5 +67,22 @@ public class UserController {
             status.setStatus(1);
         }
         return status;
+    }
+    /**
+     * 根据id删除用户
+     * @param id
+     * @return
+     */
+    @RequestMapping("deleteUserByid")
+    public int deleteUserByid(Integer id) {
+        return customerService.deleteUserByid(id);
+    }
+    /**
+     * 查询所有普通用户
+     * @return
+     */
+    @RequestMapping("findAllUser")
+    public List<UserDao> findAllUser() {
+        return customerService.findAllUser();
     }
 }

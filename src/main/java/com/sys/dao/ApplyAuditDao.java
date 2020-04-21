@@ -24,4 +24,12 @@ public interface ApplyAuditDao {
      * 审核通过修改订单信息
      */
     int updateCarOrder(Integer id);
+
+    /**
+     * 根据车牌号修改车辆状态
+     * @param carNo
+     * @return
+     */
+    int updateCarStae(String carNo);
+
 }
