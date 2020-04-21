@@ -31,7 +31,7 @@ public interface UserDao {
      * 查询所有普通用户
      * @return
      */
-    List<UserDao> findAllUser();
+    List<UserPo> findAllUser();
 
     /**
      * 根据id删除用户

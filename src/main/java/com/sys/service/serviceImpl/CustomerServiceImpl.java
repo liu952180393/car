@@ -5,10 +5,7 @@ import com.sys.Utlis.ParameterCalibration;
 import com.sys.dao.ApplyCarDao;
 import com.sys.dao.CustomerDao;
 import com.sys.dao.UserDao;
-import com.sys.entity.CustomerPo;
-import com.sys.entity.NoReturnPo;
-import com.sys.entity.OrderPo;
-import com.sys.entity.ReturnCarPo;
+import com.sys.entity.*;
 import com.sys.service.CustomerService;
 import com.sys.vo.CustomerVo;
 import lombok.SneakyThrows;
@@ -63,9 +60,9 @@ public class CustomerServiceImpl implements CustomerService {
         }else {
             return -1;
         }
-        //驾照查重
-        applyCarDao.findMaterial(customerVo.getCustomerNo());
-        if(applyCarDao!=null){
+        //驾照查重（或以上传材料）
+        String material = applyCarDao.findMaterial(customerVo.getCustomerNo());
+        if(material!=null){
             return -2;
         }
         CustomerPo customerPo = new CustomerPo();
@@ -144,7 +141,7 @@ public class CustomerServiceImpl implements CustomerService {
      * @return
      */
     @Override
-    public List<UserDao> findAllUser() {
+    public List<UserPo> findAllUser() {
         return userDao.findAllUser();
     }
 
